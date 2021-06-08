@@ -392,7 +392,7 @@ Shred.prototype = {
 // Define a bunch of convenience methods so that you don't have to include
 // a `method` property in your request options.
 
-"get put post delete".split(" ").forEach(function(method) {
+"get put post patch delete".split(" ").forEach(function(method) {
   Shred.prototype[method] = function(options) {
     options.method = method;
     return this.request(options);

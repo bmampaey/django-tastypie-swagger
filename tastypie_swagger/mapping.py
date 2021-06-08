@@ -11,7 +11,7 @@ QUERY_TERMS = {
 try:
     from django.utils.encoding import force_text
 except ImportError:
-    from django.utils.encoding import force_text as force_text
+    from django.utils.encoding import force_str as force_text
 
 
 from tastypie import fields
@@ -164,7 +164,7 @@ class ResourceSwaggerMapping(object):
             'name': "order_by",
             'dataType': "String",
             'required': False,
-            'description': unicode("Orders the result set based on the selection. "
+            'description': str("Orders the result set based on the selection. "
                                    "Ascending order by default, prepending the '-' "
                                    "sign change the sorting order to descending"),
             'allowableValues': {
@@ -308,7 +308,7 @@ class ResourceSwaggerMapping(object):
                                   name=name,
                                   dataType=field['dataType'],
                                   required=field['required'],
-                                  description=unicode(field['description'])
+                                  description=field['description']
                                   ))
 
 

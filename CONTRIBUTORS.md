@@ -6,3 +6,4 @@
 [Joshua Kehn](https://github.com/joshkehn)
 [David Miller](david@deadpansincerity.com)
 [Patrick Senti](https://github.com/miraculixx)
+[Benjamin Mampaey](https://github.com/bmampaey)
