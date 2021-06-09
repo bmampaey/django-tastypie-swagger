@@ -203,6 +203,7 @@ class ResourceSwaggerMapping(object):
                         # However, tastypie allows us to mark fields that do not have related resources as ALL_WITH_RELATIONS.
                         # This functions like a white list.
                         # Therefore, we need to check whether a field actually has a related resource.
+                        
                         if field == ALL:
                             has_related_resource = False
                         else:

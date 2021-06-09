@@ -344,7 +344,7 @@ require.define("/shred.js", function (require, module, exports, __dirname, __fil
     // Shred is an HTTP client library intended to simplify the use of Node's
 // built-in HTTP library. In particular, we wanted to make it easier to interact
 // with HTTP-based APIs.
-// 
+//
 // See the [examples](./examples.html) for more details.
 
 // Ax is a nice logging library we wrote. You can use any logger, providing it
@@ -437,7 +437,7 @@ var format = function(level,message) {
 
 var noOp = function(message) { return this; }
 var makeLogger = function(level,fn) {
-  return function(message) { 
+  return function(message) {
     this.stream.write(this.format(level, message)+"\n");
     return this;
   }
@@ -549,7 +549,7 @@ require.define("/node_modules/cookiejar/cookiejar.js", function (require, module
       return this;
     }
     else {
-        return new CookieAccessInfo(domain,path,secure,script)    
+        return new CookieAccessInfo(domain,path,secure,script)
     }
 }
 
@@ -1738,7 +1738,7 @@ try {
 // `Request` object handles this, getting the raw response object and passing it
 // in here, along with the request. The callback allows us to stream the response
 // and then use the callback to let the request know when it's ready.
-var Response = function(raw, request, callback) { 
+var Response = function(raw, request, callback) {
   var response = this;
   this._raw = raw;
 
@@ -1808,7 +1808,7 @@ var Response = function(raw, request, callback) {
     }
 
     var setBodyAndFinish = function (body) {
-      response._body = new Content({ 
+      response._body = new Content({
         body: body,
         type: response.getHeader("Content-Type")
       });
@@ -1828,7 +1828,7 @@ var Response = function(raw, request, callback) {
     else{
        if (response.request.encoding){
             body = Iconv.fromEncoding(body,response.request.encoding);
-        }        
+        }
       setBodyAndFinish(body);
     }
   });
@@ -1862,7 +1862,7 @@ Response.prototype = {
 // `Response` object properties, all of which are read-only:
 Object.defineProperties(Response.prototype, {
   
-// - **status**. The HTTP status code for the response. 
+// - **status**. The HTTP status code for the response.
   status: {
     get: function() { return this._raw.statusCode; },
     enumerable: true
@@ -2119,7 +2119,7 @@ require.define("/shred/mixins/headers.js", function (require, module, exports, _
 // overload the index operator in Javascript, using a hash to represent the
 // headers means it's possible to have two conflicting values for a single
 // header.
-// 
+//
 // The solution to this is to provide explicit methods to set or get headers.
 // This also has the benefit of allowing us to introduce additional variations,
 // including snake case, which we automatically convert to what Matthew King has
@@ -2133,7 +2133,7 @@ require.define("/shred/mixins/headers.js", function (require, module, exports, _
 var corsetCase = function(string) {
   return string.toLowerCase()
       //.replace("_","-")
-      .replace(/(^|-)(\w)/g, 
+      .replace(/(^|-)(\w)/g,
           function(s) { return s.toUpperCase(); });
 };
 
@@ -2157,7 +2157,7 @@ var getHeader = function(object,name) {
 };
 
 // The "real" `getHeader` function: get one or more headers, or all of them
-// if you don't ask for any specifics. 
+// if you don't ask for any specifics.
 var getHeaders = function(object,names) {
   var keys = (names && names.length>0) ? names : Object.keys($H(object));
   var hash = keys.reduce(function(hash,key) {
@@ -2247,7 +2247,7 @@ var iconv = module.exports = {
                 // Options for other encoding.
                 codecOptions = codec;
                 enc = codec.type;
-            } 
+            }
             else if (type === "Function")
                 // Codec itself.
                 return codec(codecOptions);
@@ -2346,7 +2346,7 @@ var iconv = module.exports = {
                         if (str.charCodeAt(i) >> 7)
                             bufLen++;
 
-                    var newBuf = new Buffer(bufLen), gbkcode, unicode, 
+                    var newBuf = new Buffer(bufLen), gbkcode, unicode,
                         defaultChar = revCharsTable[iconv.defaultCharUnicode.charCodeAt(0)];
 
                     for (var i = 0, j = 0; i < strLen; i++) {
